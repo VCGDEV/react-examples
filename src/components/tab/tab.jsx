@@ -71,6 +71,7 @@ class Tab extends React.Component {
     const titles = tabs.map((tab, index) => (
       <TabTitle
         key={"tab" + index}
+        visible={tab.visible}
         title={tab.title}
         onClick={() => this.toggleTab(index)}
       />

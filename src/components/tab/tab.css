@@ -3,6 +3,11 @@
   height: 100% !important;
 }
 
+.active {
+  color: white;
+  border-bottom: 2px solid gray;
+}
+
 .tab-footer {
   background: #1c2022;
   color: gray;
@@ -24,11 +29,11 @@
 .tab-header > ul > li {
   list-style-type: none;
   display: inline-block;
-  border: 2px solid gray;
   margin-left: 8px;
   margin-top: 3px;
   margin-bottom: 3px;
   cursor: pointer;
+  border-left: 0.1em solid gainsboro;
 }
 
 .tab-body {
