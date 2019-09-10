@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Tab from "./components/tab/tab-container";
+import Tab from "./components/tab/tab";
 
 const App = () => (
   <div>

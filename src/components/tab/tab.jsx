@@ -7,22 +7,8 @@ import { NumberList } from "../numbers";
 import { FormExample } from "../forms";
 import Calculator from "../temperature-calculator";
 import { WelcomeDialog } from "../containment-example";
-
-const TabTitle = props => <li onClick={props.onClick}>{props.title}</li>;
-
-class TabContainer extends React.Component {
-  render() {
-    if (!this.props.visible) {
-      return null;
-    }
-    return (
-      <div>
-        <div className={"tab-content"}>{this.props.content}</div>
-      </div>
-    );
-  }
-}
-
+import { TabTitle, TabContainer } from "./tab-elements";
+import { numbers, PRODUCTS } from "../api/constants";
 class Tab extends React.Component {
   constructor(props) {
     super(props);
@@ -80,6 +66,7 @@ class Tab extends React.Component {
 
   render() {
     const tabs = this.state.tabs;
+
     const titles = tabs.map((tab, index) => (
       <TabTitle
         key={"tab" + index}
@@ -109,39 +96,3 @@ class Tab extends React.Component {
 }
 
 export default Tab;
-
-const PRODUCTS = [
-  {
-    category: "Sporting Goods",
-    price: "$49.99",
-    stocked: true,
-    name: "Football"
-  },
-  {
-    category: "Sporting Goods",
-    price: "$9.99",
-    stocked: true,
-    name: "Baseball"
-  },
-  {
-    category: "Sporting Goods",
-    price: "$29.99",
-    stocked: false,
-    name: "Basketball"
-  },
-  {
-    category: "Electronics",
-    price: "$99.99",
-    stocked: true,
-    name: "iPod Touch"
-  },
-  {
-    category: "Electronics",
-    price: "$399.99",
-    stocked: false,
-    name: "iPhone 5"
-  },
-  { category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7" }
-];
-
-const numbers = [0, 1, 2, 3, 4, 5];
