@@ -9,6 +9,7 @@ import Calculator from "../temperature-calculator";
 import { WelcomeDialog } from "../containment-example";
 import { TabTitle, TabContainer } from "./tab-elements";
 import { numbers, PRODUCTS } from "../api/constants";
+import "./tab.css";
 class Tab extends React.Component {
   constructor(props) {
     super(props);
@@ -84,12 +85,12 @@ class Tab extends React.Component {
     ));
 
     return (
-      <div>
-        <div>
+      <div className="tab">
+        <div className="tab-header">
           <ul>{titles}</ul>
         </div>
-        <div>{containers}</div>
-        <div>Footer</div>
+        <div className="tab-body">{containers}</div>
+        <div className="tab-footer" />
       </div>
     );
   }

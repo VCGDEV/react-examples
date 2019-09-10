@@ -26,11 +26,9 @@ class LoginControl extends React.Component {
     }
     return (
       <div>
-        <fieldset>
-          <legend>Conditional rendering example</legend>
-          <Greeting isLoggedIn={isLogedIn} />
-          {button}
-        </fieldset>
+        <legend>Conditional rendering example</legend>
+        <Greeting isLoggedIn={isLogedIn} />
+        {button}
       </div>
     );
   }

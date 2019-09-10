@@ -4,10 +4,5 @@ export const NumberList = props => {
   const listNumbers = numbers.map(number => (
     <li key={number.toString()}>{number}</li>
   ));
-  return (
-    <fieldset>
-      <legend>List example</legend>
-      <ul>{listNumbers}</ul>
-    </fieldset>
-  );
+  return <ul>{listNumbers}</ul>;
 };

@@ -4,10 +4,9 @@ import Reservation from "./reservation";
 import FileInput from "./file-input";
 
 export const FormExample = () => (
-  <fieldset>
-    <legend>Forms examples</legend>
+  <div>
     <NameForm />
     <Reservation />
     <FileInput />
-  </fieldset>
+  </div>
 );

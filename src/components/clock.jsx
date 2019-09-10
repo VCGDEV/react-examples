@@ -41,13 +41,10 @@ class Clock extends React.Component {
     const isClockOn = this.state.isClockOn;
     return (
       <div>
-        <fieldset>
-          <legend>Clock example</legend>
-          <FormattedDate date={this.state.date} />
-          <button onClick={this.toggleTimer}>
-            {isClockOn ? "Stop" : "Start"}
-          </button>
-        </fieldset>
+        <FormattedDate date={this.state.date} />
+        <button onClick={this.toggleTimer}>
+          {isClockOn ? "Stop" : "Start"}
+        </button>
       </div>
     );
   }
