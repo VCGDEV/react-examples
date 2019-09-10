@@ -94,7 +94,7 @@ class SearchBar extends React.Component {
             onChange={this.handleInStockChange}
             type="checkbox"
           />{" "}
-          Only show prodcuts in stock
+          Only show products in stock
         </p>
       </form>
     );
