@@ -9,6 +9,7 @@ import Calculator from "../temperature-calculator";
 import { WelcomeDialog } from "../containment-example";
 import { TabTitle, TabContainer } from "./tab-elements";
 import { numbers, PRODUCTS } from "../api/constants";
+import { CounterContainer } from "../redux-basics/basics";
 import "./tab.css";
 class Tab extends React.Component {
   constructor(props) {
@@ -54,6 +55,11 @@ class Tab extends React.Component {
           title: "Calculator example",
           content: <Calculator />,
           visible: false
+        },
+        {
+          title: "Counter Redux",
+          content: <CounterContainer />,
+          visible: false
         }
       ]
     };
@@ -71,18 +77,13 @@ class Tab extends React.Component {
     const titles = tabs.map((tab, index) => (
       <TabTitle
         key={"tab" + index}
-        visible={tab.visible}
-        title={tab.title}
+        {...tab}
         onClick={() => this.toggleTab(index)}
       />
     ));
 
     const containers = tabs.map((tab, index) => (
-      <TabContainer
-        key={"container" + index}
-        content={tab.content}
-        visible={tab.visible}
-      />
+      <TabContainer key={"container" + index} {...tab} />
     ));
 
     return (
