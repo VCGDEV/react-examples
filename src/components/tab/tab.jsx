@@ -23,7 +23,12 @@ class Tab extends React.Component {
         },
         {
           title: "Clock",
-          content: <Clock />,
+          content: (
+            <div>
+              <Clock />
+              <Clock />
+            </div>
+          ),
           visible: false
         },
         {
@@ -88,11 +93,11 @@ class Tab extends React.Component {
 
     return (
       <div className="tab">
-        <div className="tab-header">
+        <div className="tab-header dark">
           <ul>{titles}</ul>
         </div>
         <div className="tab-body">{containers}</div>
-        <div className="tab-footer" />
+        <div className="tab-footer dark" />
       </div>
     );
   }
