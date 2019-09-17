@@ -1,12 +1,12 @@
-import { createStore } from "redux";
+import { DECREMENT, INCREMENT } from "./constants";
+import { increment, decrement } from "./action-creators";
+import { connect } from "react-redux";
 import React from "react";
-const counter = (state = 0, action) => {
-  console.log(action);
-  console.log(state);
+export const counter = (state = 0, action) => {
   switch (action.type) {
-    case "INCREMENT":
+    case INCREMENT:
       return state + 1;
-    case "DECREMENT":
+    case DECREMENT:
       return state - 1;
     default:
       return state;
@@ -21,35 +21,20 @@ const Counter = ({ value, onIncrement, onDecrement }) => (
   </div>
 );
 
-const store = createStore(counter);
-
-export const CounterContainer = props => (
-  <Counter
-    value={store.getState()}
-    onIncrement={() => store.dispatch({ type: "INCREMENT" })}
-    onDecrement={() => store.dispatch({ type: "DECREMENT" })}
-  />
-);
-
-/*
-const createStore = reducer => {
-  let state;
-  let listeners = [];
-
-  const getState = () => state;
-
-  const dispatch = action => {
-    state = reducer(state, action);
-    listeners.forEach(listener => listener());
+const mapDispatchToProps = dispatch => {
+  return {
+    onIncrement: () => dispatch(increment()),
+    onDecrement: () => dispatch(decrement())
   };
-
-  const subscribe = listener => {
-    listeners.push(listener);
-    return () => {
-      listeners = listeners.filter(l => l !== listener);
-    };
-  };
-  dispatch({});
-  return { getState, dispatch, subscribe };
 };
-*/
+
+const mapStateToProps = state => {
+  return {
+    value: state
+  };
+};
+
+export const CounterContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Counter);
