@@ -8,7 +8,7 @@ import { counter } from "./basics";
   visibilityFilter: visibilityFilter
 }); */
 // if there names are the same use ES6
-export const todoApp = combineReducers({
+export const fullApp = combineReducers({
   todos,
   visibilityFilter,
   counter

@@ -2,6 +2,8 @@ import { DECREMENT, INCREMENT } from "./constants";
 import { increment, decrement } from "./action-creators";
 import { connect } from "react-redux";
 import React from "react";
+
+//reducer
 export const counter = (state = 0, action) => {
   switch (action.type) {
     case INCREMENT:
@@ -30,7 +32,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
   return {
-    value: state
+    value: state.counter
   };
 };
 

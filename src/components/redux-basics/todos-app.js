@@ -38,12 +38,8 @@ export const todos = (state = [], action) => {
 };
 
 export const visibilityFilter = (state = SHOW_ALL, action) => {
-  console.log("visibility filter");
-  console.log(state);
-  console.log(action);
   switch (action.type) {
     case SET_VISIBILITY_FILTER:
-      console.log(action);
       return action.filter;
     default:
       return state;
