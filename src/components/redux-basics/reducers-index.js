@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { todos, visibilityFilter } from "./todos-app";
+import { todos, visibilityFilter } from "./todos-reducers";
 import { counter } from "./basics";
 
 //combine reducers

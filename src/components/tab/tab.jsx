@@ -10,6 +10,7 @@ import { WelcomeDialog } from "../containment-example";
 import { TabTitle, TabContainer } from "./tab-elements";
 import { numbers, PRODUCTS } from "../api/constants";
 import { CounterContainer } from "../redux-basics/basics";
+import { TodoApp } from "../redux-basics/todo-app";
 import "./tab.css";
 class Tab extends React.Component {
   constructor(props) {
@@ -64,6 +65,11 @@ class Tab extends React.Component {
         {
           title: "Counter Redux",
           content: <CounterContainer />,
+          visible: false
+        },
+        {
+          title: "Todos",
+          content: <TodoApp />,
           visible: false
         }
       ]

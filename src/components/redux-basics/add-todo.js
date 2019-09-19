@@ -1,8 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-
-let nextTodoId = 0;
-let AddTodo = ({ dispatch }) => {
+import { addTodo } from "./action-creators";
+let AddTodo = ({ onClick }) => {
   let input;
   return (
     <div>
@@ -13,11 +12,7 @@ let AddTodo = ({ dispatch }) => {
       />
       <button
         onClick={() => {
-          dispatch({
-            type: "ADD_TODO",
-            text: input.value,
-            id: nextTodoId++
-          });
+          onClick(input.value);
           input.value = "";
         }}
       >
@@ -27,5 +22,12 @@ let AddTodo = ({ dispatch }) => {
   );
 };
 
-AddTodo = connect()(AddTodo);
+const mapDispatchToProps = dispatch => {
+  return { onClick: text => dispatch(addTodo(text)) };
+};
+
+AddTodo = connect(
+  null,
+  mapDispatchToProps
+)(AddTodo);
 export default AddTodo;
