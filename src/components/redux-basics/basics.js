@@ -23,18 +23,18 @@ const Counter = ({ value, onIncrement, onDecrement }) => (
   </div>
 );
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onIncrement: () => dispatch(increment()),
-    onDecrement: () => dispatch(decrement())
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  onIncrement() {
+    dispatch(increment());
+  },
+  onDecrement() {
+    dispatch(decrement());
+  }
+});
 
-const mapStateToProps = state => {
-  return {
-    value: state.counter
-  };
-};
+const mapStateToProps = state => ({
+  value: state.counter
+});
 
 export const CounterContainer = connect(
   mapStateToProps,

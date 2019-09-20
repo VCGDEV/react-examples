@@ -40,7 +40,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setVisibilityFilter: filter => dispatch(setVisibilityFilter(filter))
+  setVisibilityFilter(filter) {
+    dispatch(setVisibilityFilter(filter));
+  }
 });
 
 TodoFilter = connect(

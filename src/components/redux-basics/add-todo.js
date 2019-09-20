@@ -22,9 +22,9 @@ let AddTodo = ({ onClick }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return { onClick: text => dispatch(addTodo(text)) };
-};
+const mapDispatchToProps = dispatch => ({
+  onClick: text => dispatch(addTodo(text))
+});
 
 AddTodo = connect(
   null,

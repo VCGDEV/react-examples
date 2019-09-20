@@ -11,20 +11,18 @@ let TodoList = ({ todos, filter, onTodoClick }) => (
   </ul>
 );
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onTodoClick: id => dispatch(toggleTodo(id))
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  onTodoClick(id) {
+    dispatch(toggleTodo(id));
+  }
+});
 
-const mapStateToProps = state => {
-  return {
-    todos: state.todos,
-    filter: state.visibilityFilter
-  };
-};
+const mapStateToProps = state => ({
+  todos: state.todos,
+  filter: state.visibilityFilter
+});
 
-function filterTodos(todos, filter) {
+const filterTodos = (todos, filter) => {
   switch (filter) {
     case SHOW_ALL:
       return todos;
@@ -35,7 +33,7 @@ function filterTodos(todos, filter) {
     default:
       return todos;
   }
-}
+};
 
 TodoList = connect(
   mapStateToProps,
