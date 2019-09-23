@@ -1,13 +1,15 @@
 import React from "react";
 import Tab from "./components/tab/tab";
 import { Provider } from "react-redux";
-import { HashRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 
+// (:filter) -> optional
+// :filter required
 const Root = ({ store }) => (
   <Provider store={store}>
-    <HashRouter>
+    <BrowserRouter>
       <Route path="/" component={Tab} />
-    </HashRouter>
+    </BrowserRouter>
   </Provider>
 );
 
