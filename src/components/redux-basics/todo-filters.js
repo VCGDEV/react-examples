@@ -3,11 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const isActive = (match, location) => {
   if (match) {
-    const active = match.path === `\\${location.pathname}`;
-    if (active) {
-      console.log(`Active link: ${match.path}`);
-    }
-    return active;
+    return match.path === `\\${location.pathname}`;
   } else {
     return false;
   }
