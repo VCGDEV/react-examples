@@ -1,5 +1,5 @@
 import React from "react";
-import { TodoApp } from "./components/redux-basics/todo-app";
+import Tab from "./components/tab/tab";
 import { Provider } from "react-redux";
 import { BrowserRouter, Route } from "react-router-dom";
 
@@ -8,7 +8,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 const Root = ({ store }) => (
   <Provider store={store}>
     <BrowserRouter>
-      <Route path="/:filter?" component={TodoApp} />
+      <Route path="/:filter?" component={Tab} />
     </BrowserRouter>
   </Provider>
 );

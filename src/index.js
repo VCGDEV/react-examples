@@ -5,5 +5,4 @@ import Root from "./Root";
 
 const rootElement = document.getElementById("root");
 const store = configureStore();
-
 ReactDOM.render(<Root store={store} />, rootElement);
