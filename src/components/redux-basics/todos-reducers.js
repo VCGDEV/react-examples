@@ -1,9 +1,4 @@
-import {
-  ADD_TODO,
-  TOGGLE_TODO,
-  SET_VISIBILITY_FILTER,
-  SHOW_ALL
-} from "./constants";
+import { ADD_TODO, TOGGLE_TODO } from "./constants";
 //reducer composition
 const todo = (state, action) => {
   switch (action.type) {
@@ -37,11 +32,15 @@ export const todos = (state = [], action) => {
   }
 };
 
-export const visibilityFilter = (state = SHOW_ALL, action) => {
-  switch (action.type) {
-    case SET_VISIBILITY_FILTER:
-      return action.filter;
-    default:
+export const filterTodos = (state, filter) => {
+  switch (filter) {
+    case "all":
       return state;
+    case "active":
+      return state.filter(todo => !todo.completed);
+    case "completed":
+      return state.filter(todo => todo.completed);
+    default:
+      throw new Error(`Unknow filter ${filter}`);
   }
 };

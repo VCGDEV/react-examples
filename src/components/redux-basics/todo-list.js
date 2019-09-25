@@ -3,6 +3,7 @@ import { Todo } from "./todo-component";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { toggleTodo } from "./action-creators";
+import { filterTodos } from "./reducers-index";
 let TodoList = ({ todos, onTodoClick }) => (
   <ul>
     {todos.map(todo => (
@@ -26,21 +27,8 @@ const mapStateToProps = (
     }
   }
 ) => ({
-  todos: filterTodos(state.todos, filter || "all")
+  todos: filterTodos(state, filter || "all")
 });
-
-const filterTodos = (todos, filter) => {
-  switch (filter) {
-    case "all":
-      return todos;
-    case "active":
-      return todos.filter(todo => !todo.completed);
-    case "completed":
-      return todos.filter(todo => todo.completed);
-    default:
-      return todos;
-  }
-};
 
 /* 
 params are passed to action creator in same order, no need to create a 
