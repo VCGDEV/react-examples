@@ -11,11 +11,12 @@ let TodoList = ({ todos, onTodoClick }) => (
   </ul>
 );
 
+/*
 const mapDispatchToProps = dispatch => ({
   onTodoClick(id) {
     dispatch(toggleTodo(id));
   }
-});
+}); */
 
 const mapStateToProps = (
   state,
@@ -41,10 +42,15 @@ const filterTodos = (todos, filter) => {
   }
 };
 
+/* 
+params are passed to action creator in same order, no need to create a 
+mapDispatchToProps and instead use a configuration obejct { onTodoClick: toggleTodo }
+*/
+
 TodoList = withRouter(
   connect(
     mapStateToProps,
-    mapDispatchToProps
+    { onTodoClick: toggleTodo }
   )(TodoList)
 );
 export default TodoList;
