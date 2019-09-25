@@ -12,7 +12,6 @@ const isActive = (match, location) => {
 const FilterLink = ({ filter, children }) => (
   <NavLink
     to={filter === "all" ? "/" : `/${filter}`}
-    activeClassName="active-filter"
     activeStyle={{ textDecoration: "none", color: "black" }}
     isActive={isActive}
   >

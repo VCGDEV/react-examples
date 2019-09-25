@@ -51,3 +51,8 @@
 a:visited {
   color: blue;
 }
+
+a.active {
+  border-bottom: none !important;
+  border-left: none !important;
+}

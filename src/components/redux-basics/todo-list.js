@@ -2,10 +2,9 @@ import React from "react";
 import { Todo } from "./todo-component";
 import { connect } from "react-redux";
 import { toggleTodo } from "./action-creators";
-import { SHOW_ACTIVE, SHOW_ALL, SHOW_COMPLETED } from "./constants";
-let TodoList = ({ todos, filter, onTodoClick }) => (
+let TodoList = ({ todos, onTodoClick }) => (
   <ul>
-    {filterTodos(todos, filter).map(todo => (
+    {todos.map(todo => (
       <Todo key={todo.id} {...todo} onClick={() => onTodoClick(todo.id)} />
     ))}
   </ul>
@@ -17,18 +16,17 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-const mapStateToProps = state => ({
-  todos: state.todos,
-  filter: state.visibilityFilter
+const mapStateToProps = (state, ownProps) => ({
+  todos: filterTodos(state.todos, ownProps.filter)
 });
 
 const filterTodos = (todos, filter) => {
   switch (filter) {
-    case SHOW_ALL:
+    case "all":
       return todos;
-    case SHOW_ACTIVE:
+    case "active":
       return todos.filter(todo => !todo.completed);
-    case SHOW_COMPLETED:
+    case "completed":
       return todos.filter(todo => todo.completed);
     default:
       return todos;
