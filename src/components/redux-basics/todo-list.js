@@ -1,6 +1,7 @@
 import React from "react";
 import { Todo } from "./todo-component";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { toggleTodo } from "./action-creators";
 let TodoList = ({ todos, onTodoClick }) => (
   <ul>
@@ -16,8 +17,15 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-const mapStateToProps = (state, ownProps) => ({
-  todos: filterTodos(state.todos, ownProps.filter)
+const mapStateToProps = (
+  state,
+  {
+    match: {
+      params: { filter }
+    }
+  }
+) => ({
+  todos: filterTodos(state.todos, filter || "all")
 });
 
 const filterTodos = (todos, filter) => {
@@ -33,8 +41,10 @@ const filterTodos = (todos, filter) => {
   }
 };
 
-TodoList = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(TodoList);
+TodoList = withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(TodoList)
+);
 export default TodoList;
